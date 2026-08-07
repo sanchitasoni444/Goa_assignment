@@ -1,9 +1,9 @@
 {
     "summary": {
-        "Total e-Transaction": "19,33,97,418",
-        "Aadhaar Authenticated": "19,01,02,994",
-        "Other Mode Authenticated": "0",
-        "Non-Authenticated": "32,94,424"
+        "Total e-Transaction": "19,29,39,426",
+        "Aadhaar Authenticated": "18,80,50,359",
+        "Other Mode Authenticated": "11,13,287",
+        "Non-Authenticated": "37,75,780"
     },
     "tables": {
         "Number of Transacted Ration Cards": [
@@ -16,17 +16,17 @@
             ],
             [
                 "Priority\n\t\t\t\t\t\t\t\t\t\t\tHousehold (PHH)",
-                "13,70,24,194",
-                "3,17,09,710",
-                "8,17,649",
-                "16,95,51,553"
+                "13,65,24,726",
+                "3,18,92,284",
+                "6,36,055",
+                "16,90,53,065"
             ],
             [
                 "Antyodaya Anna Yojana (AAY)",
-                "1,93,32,721",
-                "25,64,875",
-                "91,320",
-                "2,19,88,916"
+                "1,92,52,339",
+                "26,45,090",
+                "70,566",
+                "2,19,67,995"
             ]
         ]
     }
