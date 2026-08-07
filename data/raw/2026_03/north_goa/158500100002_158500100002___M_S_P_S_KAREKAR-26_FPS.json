@@ -1,0 +1,575 @@
+{
+    "summary": {},
+    "tables": {
+        "table_0": [
+            [
+                "Jan",
+                "Feb",
+                "Mar"
+            ],
+            [
+                "Apr",
+                "May",
+                "Jun"
+            ],
+            [
+                "Jul",
+                "Aug",
+                "Sep"
+            ],
+            [
+                "Oct",
+                "Nov",
+                "Dec"
+            ]
+        ],
+        "table_1": [
+            [
+                "Screen Reader",
+                "Website",
+                "Free / Commercial"
+            ],
+            [
+                "Windows Narrator (windows only)",
+                "http://www.microsoft.com/enable/training/windowsxp/usingnarrator.aspx",
+                "Free"
+            ],
+            [
+                "Non Visual Desktop Access (NVDA)",
+                "http://www.nvda-project.org/",
+                "Free"
+            ],
+            [
+                "System Access To Go",
+                "http://www.satogo.com/",
+                "Free"
+            ],
+            [
+                "Thunder",
+                "http://www.screenreader.net/index.php?pageid=2",
+                "Free"
+            ]
+        ],
+        "table_2": [
+            [
+                "FPS LIST",
+                "240"
+            ]
+        ],
+        "Number of Transacted Ration Cards": [
+            [
+                "NFSA Ration Card Type",
+                "Regular",
+                "Intra State",
+                "Inter State",
+                "Total"
+            ],
+            [
+                "Priority\n\t\t\t\t\t\t\t\t\t\t\tHousehold (PHH)",
+                "13,70,24,194",
+                "3,17,09,710",
+                "8,17,649",
+                "16,95,51,553"
+            ],
+            [
+                "Antyodaya Anna Yojana (AAY)",
+                "1,93,32,721",
+                "25,64,875",
+                "91,320",
+                "2,19,88,916"
+            ]
+        ],
+        "table_5": [
+            [
+                "Commodity",
+                "Regular Txn",
+                "Intra state Txn",
+                "Inter State Txn",
+                "Total"
+            ],
+            [
+                "Wheat",
+                "0",
+                "0",
+                "0",
+                "0.0"
+            ],
+            [
+                "Fortified Rice",
+                "3.89",
+                "1.3",
+                "0.21",
+                "5.4"
+            ],
+            [
+                "Rice",
+                "3,890",
+                "1,300",
+                "235",
+                "5,425.0"
+            ],
+            [
+                "Coarse Grains",
+                "0",
+                "0",
+                "0",
+                "0.0"
+            ],
+            [
+                "Barley",
+                "0",
+                "0",
+                "0",
+                "0.0"
+            ],
+            [
+                "Bajra",
+                "0",
+                "0",
+                "0",
+                "0.0"
+            ],
+            [
+                "Maize",
+                "0",
+                "0",
+                "0",
+                "0.0"
+            ],
+            [
+                "Jowar",
+                "0",
+                "0",
+                "0",
+                "0.0"
+            ],
+            [
+                "Ragi",
+                "0",
+                "0",
+                "0",
+                "0.0"
+            ],
+            [
+                "Kodo",
+                "0",
+                "0",
+                "0",
+                "0.0"
+            ],
+            [
+                "Total",
+                "3,890",
+                "1,300",
+                "235",
+                "5,425.0"
+            ]
+        ],
+        "table_9": [
+            [
+                "Commodity",
+                "Regular\n\t\t\t\t\t\t\t\t\t\t\tTxn",
+                "Intra\n\t\t\t\t\t\t\t\t\t\t\tstate Txn",
+                "Inter\n\t\t\t\t\t\t\t\t\t\t\tState Txn",
+                "Total"
+            ],
+            [
+                "Wheat",
+                "12,46,106.898",
+                "3,24,522.494",
+                "14,177.754",
+                "15,84,807.15"
+            ],
+            [
+                "Fortified Rice",
+                "20,31,210.152",
+                "3,70,619.382",
+                "4,927.792",
+                "24,06,757.326"
+            ],
+            [
+                "Rice",
+                "293.961",
+                "30.933",
+                "81.782",
+                "406.676"
+            ],
+            [
+                "Coarse Grains",
+                "82,023.778",
+                "11,680.928",
+                "7.345",
+                "93,712.051"
+            ],
+            [
+                "Barley",
+                "0",
+                "0",
+                "0",
+                "0.0"
+            ],
+            [
+                "Bajra",
+                "45,620.737",
+                "7,844.466",
+                "4.661",
+                "53,469.864"
+            ],
+            [
+                "Maize",
+                "19,048.756",
+                "1,975.173",
+                "1.615",
+                "21,025.544"
+            ],
+            [
+                "Jowar",
+                "15,494.213",
+                "1,800.429",
+                "1.069",
+                "17,295.711"
+            ],
+            [
+                "Ragi",
+                "1,523.07",
+                "40.92",
+                "0",
+                "1,563.99"
+            ],
+            [
+                "Kodo",
+                "0",
+                "0",
+                "0",
+                "0.0"
+            ],
+            [
+                "Total",
+                "33,59,634.789",
+                "7,06,853.737",
+                "19,194.673",
+                "40,85,683.2"
+            ]
+        ],
+        "table_10": [
+            [
+                "PUNJAB",
+                "36,60,231",
+                "100.00%"
+            ]
+        ],
+        "table_11": [
+            [
+                "MAHARASHTRA",
+                "1,59,22,182",
+                "100.00%"
+            ]
+        ],
+        "table_12": [
+            [
+                "DELHI",
+                "20,30,599",
+                "100.00%"
+            ]
+        ],
+        "table_13": [
+            [
+                "HARYANA",
+                "37,68,051",
+                "100.00%"
+            ]
+        ],
+        "table_14": [
+            [
+                "KARNATAKA",
+                "1,04,45,912",
+                "100.00%"
+            ]
+        ],
+        "table_15": [
+            [
+                "LAKSHADWEEP",
+                "4,294",
+                "100.00%"
+            ]
+        ],
+        "table_16": [
+            [
+                "DADAR & NAGAR HAVELI & DAMAN & DIU",
+                "60,167",
+                "100.00%"
+            ]
+        ],
+        "table_17": [
+            [
+                "KERALA",
+                "42,46,173",
+                "100.00%"
+            ]
+        ],
+        "table_18": [
+            [
+                "WEST BENGAL",
+                "1,35,40,119",
+                "99.97%"
+            ]
+        ],
+        "table_19": [
+            [
+                "RAJASTHAN",
+                "97,50,651",
+                "99.93%"
+            ]
+        ],
+        "table_20": [
+            [
+                "BIHAR",
+                "1,88,99,714",
+                "99.88%"
+            ]
+        ],
+        "table_21": [
+            [
+                "GUJARAT",
+                "72,08,072",
+                "99.78%"
+            ]
+        ],
+        "table_22": [
+            [
+                "TELANGANA",
+                "54,15,106",
+                "99.72%"
+            ]
+        ],
+        "table_23": [
+            [
+                "BIHAR",
+                "1,18,49,685",
+                "56.77%"
+            ]
+        ],
+        "table_24": [
+            [
+                "HARYANA",
+                "15,87,728",
+                "38.98%"
+            ]
+        ],
+        "table_25": [
+            [
+                "PUNJAB",
+                "13,84,078",
+                "37.04%"
+            ]
+        ],
+        "table_26": [
+            [
+                "DELHI",
+                "7,19,216",
+                "34.47%"
+            ]
+        ],
+        "table_27": [
+            [
+                "TELANGANA",
+                "19,70,830",
+                "33.25%"
+            ]
+        ],
+        "table_28": [
+            [
+                "KERALA",
+                "14,33,820",
+                "29.52%"
+            ]
+        ],
+        "table_29": [
+            [
+                "RAJASTHAN",
+                "28,36,749",
+                "27.71%"
+            ]
+        ],
+        "table_30": [
+            [
+                "LAKSHADWEEP",
+                "1,418",
+                "27.14%"
+            ]
+        ],
+        "table_31": [
+            [
+                "ANDHRA PRADESH",
+                "23,04,128",
+                "25.15%"
+            ]
+        ],
+        "table_32": [
+            [
+                "MADHYA PRADESH",
+                "17,53,716",
+                "12.77%"
+            ]
+        ],
+        "table_33": [
+            [
+                "ANDAMAN AND NICOBAR ISLANDS",
+                "2,015",
+                "11.44%"
+            ]
+        ],
+        "table_34": [
+            [
+                "UTTAR PRADESH",
+                "38,84,314",
+                "11.26%"
+            ]
+        ],
+        "table_35": [
+            [
+                "CHHATTISGARH",
+                "6,42,080",
+                "10.94%"
+            ]
+        ],
+        "table_36": [
+            [
+                "DELHI",
+                "5,87,482",
+                "26.17%"
+            ]
+        ],
+        "table_37": [
+            [
+                "DADAR & NAGAR HAVELI & DAMAN & DIU",
+                "11,971",
+                "17.80%"
+            ]
+        ],
+        "table_38": [
+            [
+                "GOA",
+                "3,288",
+                "2.64%"
+            ]
+        ],
+        "table_39": [
+            [
+                "HARYANA",
+                "86,895",
+                "1.98%"
+            ]
+        ],
+        "table_40": [
+            [
+                "UTTARAKHAND",
+                "22,351",
+                "1.59%"
+            ]
+        ],
+        "table_41": [
+            [
+                "MAHARASHTRA",
+                "1,02,498",
+                "0.59%"
+            ]
+        ],
+        "table_42": [
+            [
+                "JAMMU AND KASHMIR",
+                "6,644",
+                "0.38%"
+            ]
+        ],
+        "table_43": [
+            [
+                "GUJARAT",
+                "26,054",
+                "0.32%"
+            ]
+        ],
+        "table_44": [
+            [
+                "RAJASTHAN",
+                "26,678",
+                "0.24%"
+            ]
+        ],
+        "table_45": [
+            [
+                "TELANGANA",
+                "12,759",
+                "0.21%"
+            ]
+        ],
+        "table_46": [
+            [
+                "PUNJAB",
+                "5,999",
+                "0.14%"
+            ]
+        ],
+        "table_47": [
+            [
+                "KERALA",
+                "4,228",
+                "0.09%"
+            ]
+        ],
+        "table_48": [
+            [
+                "WEST BENGAL",
+                "9,578",
+                "0.06%"
+            ]
+        ],
+        "table_49": [
+            [
+                "HOME STATE",
+                "",
+                ""
+            ],
+            [
+                "RATION CARD ID",
+                "",
+                ""
+            ],
+            [
+                "SCHEME NAME",
+                "",
+                ""
+            ],
+            [
+                "FPS ID",
+                "",
+                ""
+            ]
+        ],
+        "table_50": [],
+        "table_51": [
+            [
+                "RATION CARD NO.",
+                ":",
+                ""
+            ],
+            [
+                "HOME STATE",
+                ":",
+                ""
+            ],
+            [
+                "SALE STATE",
+                ":",
+                ""
+            ],
+            [
+                "SCHEME",
+                ":",
+                ""
+            ]
+        ],
+        "table_52": [],
+        "table_53": []
+    }
+}
