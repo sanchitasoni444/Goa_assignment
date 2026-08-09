@@ -1,6 +1,7 @@
 import os
 import json
 import pandas as pd
+import numpy as np
 from pathlib import Path
 import logging
 
@@ -12,11 +13,11 @@ def clean_number(val):
         return val
     val = val.replace(',', '').strip()
     if not val:
-        return 0.0
+        return np.nan
     try:
         return float(val)
     except ValueError:
-        return 0.0
+        return np.nan
 
 def process_file(filepath):
     path = Path(filepath)

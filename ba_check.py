@@ -31,13 +31,14 @@ def main():
         
         if len(mismatches) > 0:
             print(f"Warning: Found {len(mismatches)} records where calculated sum of components doesn't match total distributed quantity.")
-            issues += 1
+            issues += len(mismatches)
     
     # Check 3: Missing PHH/AAY counts
     if 'phh_rc_total' in df.columns and 'aay_rc_total' in df.columns:
         missing_rc = df[(df['phh_rc_total'] == 0) & (df['aay_rc_total'] == 0)]
         if len(missing_rc) > 0:
             print(f"Warning: Found {len(missing_rc)} records with 0 for both PHH and AAY ration card counts.")
+            issues += len(missing_rc)
             
     if issues == 0:
         print("Business Analyst Check: PASSED. No structural anomalies found in the dataset.")
