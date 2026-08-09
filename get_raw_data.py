@@ -18,6 +18,7 @@ logger = logging.getLogger(__name__)
 MONTHS_TO_SCRAPE = [("3", "2026"), ("4", "2026")]
 DISTRICTS = {"585": "north_goa", "586": "south_goa"}
 STATE_CODE = "30"
+STATE_NAME = "Goa"
 
 def get_edge_driver():
     options = EdgeOptions()
@@ -30,9 +31,15 @@ def ensure_dir(path):
     if not os.path.exists(path):
         os.makedirs(path)
 
-def extract_fps_data(driver):
+def extract_fps_data(driver, state, district, year, month, fps_id, fps_name):
     soup = BeautifulSoup(driver.page_source, "html.parser")
     data = {
+        "state": state,
+        "district": district,
+        "year": year,
+        "month": month,
+        "fps_id": fps_id,
+        "fps_name": fps_name,
         "summary": {},
         "tables": {}
     }
@@ -68,7 +75,7 @@ def extract_fps_data(driver):
     return data
 
 def scrape_fps_list(driver, month, year, district_code, district_name):
-    output_dir = f"data/raw/{year}_{month.zfill(2)}/{district_name}"
+    output_dir = f"data/raw/{year}-{month.zfill(2)}/{district_name}"
     ensure_dir(output_dir)
     wait = WebDriverWait(driver, 15)
 
@@ -136,7 +143,7 @@ def scrape_fps_list(driver, month, year, district_code, district_name):
                     except Exception:
                         pass 
 
-                    data = extract_fps_data(driver)
+                    data = extract_fps_data(driver, STATE_NAME, district_name, year, month.zfill(2), fps_id, fps_name)
                     
                     with open(file_path, "w", encoding="utf-8") as f:
                         json.dump(data, f, indent=4)
