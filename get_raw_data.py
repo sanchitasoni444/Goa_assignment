@@ -10,6 +10,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException, WebDriverException
+import time
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -20,6 +21,7 @@ DISTRICTS = {"585": "north_goa", "586": "south_goa"}
 STATE_CODE = "30"
 STATE_NAME = "Goa"
 
+
 def get_edge_driver():
     options = EdgeOptions()
     options.add_argument("--headless")
@@ -27,9 +29,11 @@ def get_edge_driver():
     options.add_argument("--window-size=1920,1080")
     return webdriver.Edge(options=options)
 
+
 def ensure_dir(path):
     if not os.path.exists(path):
         os.makedirs(path)
+
 
 def extract_fps_data(driver, state, district, year, month, fps_id, fps_name):
     soup = BeautifulSoup(driver.page_source, "html.parser")
@@ -43,7 +47,7 @@ def extract_fps_data(driver, state, district, year, month, fps_id, fps_name):
         "summary": {},
         "tables": {}
     }
-    
+
     blocks = soup.find_all("div", class_="metro-nav-block1")
     for block in blocks:
         status_div = block.find("div", class_="status1")
@@ -58,7 +62,7 @@ def extract_fps_data(driver, state, district, year, month, fps_id, fps_name):
     for tbl in tables:
         headers = [th.get_text(strip=True) for th in tbl.find_all("th")]
         header_text = " ".join(headers).lower()
-        
+
         table_data = []
         for tr in tbl.find_all("tr"):
             row = [td.get_text(strip=True) for td in tr.find_all(["th", "td"])]
@@ -71,8 +75,9 @@ def extract_fps_data(driver, state, district, year, month, fps_id, fps_name):
             data["tables"]["Number of Transacted Ration Cards"] = table_data
         elif "distributed quantity" in header_text:
             data["tables"]["Distributed Quantity"] = table_data
-            
+
     return data
+
 
 def scrape_fps_list(driver, month, year, district_code, district_name):
     output_dir = f"data/raw/{year}-{month.zfill(2)}/{district_name}"
@@ -80,7 +85,7 @@ def scrape_fps_list(driver, month, year, district_code, district_name):
     wait = WebDriverWait(driver, 15)
 
     try:
-        logger.info(f"Navigating to Homepage")
+        logger.info("Navigating to Homepage")
         driver.get("https://impds.nic.in/sale/")
 
         modal_btn = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#calModal a")))
@@ -102,7 +107,7 @@ def scrape_fps_list(driver, month, year, district_code, district_name):
         dist_btn = wait.until(EC.element_to_be_clickable((By.XPATH, f"//a[contains(@onclick, \"stateData('{district_code}')\")]")))
         driver.execute_script("arguments[0].click();", dist_btn)
 
-        fps_list_btn = wait.until(EC.element_to_be_clickable((By.XPATH, f"//a[contains(@onclick, 'liveFpsdata')] | //div[contains(@onclick, 'liveFpsdata')]")))
+        fps_list_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//a[contains(@onclick, 'liveFpsdata')] | //div[contains(@onclick, 'liveFpsdata')]")))
         driver.execute_script("arguments[0].click();", fps_list_btn)
 
         wait.until(EC.presence_of_element_located((By.XPATH, "//div[@id='stateDivId']//a[contains(@onclick, 'stateData')] | //div[@id='liveDivId']//a[contains(@onclick, 'stateData')]")))
@@ -110,7 +115,7 @@ def scrape_fps_list(driver, month, year, district_code, district_name):
         fps_links = driver.find_elements(By.XPATH, "//div[@id='stateDivId']//a[contains(@onclick, 'stateData')] | //div[@id='liveDivId']//a[contains(@onclick, 'stateData')]")
         fps_ids = []
         for link in fps_links:
-            onclick = link.get_attribute("onclick")
+            onclick = link.get_attribute("onclick") or ""
             if "stateData" in onclick:
                 f_id = onclick.split("'")[1]
                 f_name = link.text.strip().replace(" ", "_").replace("/", "_").replace(":", "_")
@@ -118,6 +123,9 @@ def scrape_fps_list(driver, month, year, district_code, district_name):
 
         logger.info(f"Found {len(fps_ids)} FPS in {district_name}")
 
+        # Process every FPS returned by the portal. No artificial sampling limit
+        # is applied, so the final dataset represents the full FPS list exposed
+        # by IMPDS for each target district/month.
         for fps_id, fps_name in fps_ids:
             file_path = os.path.join(output_dir, f"{fps_id}_{fps_name}.json")
             if os.path.exists(file_path):
@@ -129,38 +137,34 @@ def scrape_fps_list(driver, month, year, district_code, district_name):
                 try:
                     logger.info(f"Processing FPS {fps_id} (Attempt {attempt + 1}/3)")
                     driver.execute_script(f"stateData('{fps_id}');")
-                    
                     wait.until(EC.presence_of_element_located((By.CLASS_NAME, "metro-nav-block1")))
-                    
-                    import time
-                    time.sleep(1) # Tiny sleep to ensure chart rendering doesn't shift the DOM dynamically
-                    
+                    time.sleep(1)  # Allow dynamically rendered charts/tables to settle.
+
                     try:
                         expand_btns = driver.find_elements(By.CSS_SELECTOR, ".activator, .menu-toggle, .fa-plus, .fa-plus-circle")
                         for btn in expand_btns:
                             if btn.is_displayed():
                                 driver.execute_script("arguments[0].click();", btn)
                     except Exception:
-                        pass 
+                        pass
 
                     data = extract_fps_data(driver, STATE_NAME, district_name, year, month.zfill(2), fps_id, fps_name)
-                    
                     with open(file_path, "w", encoding="utf-8") as f:
                         json.dump(data, f, indent=4)
-                        
+
                     success = True
                     break
                 except Exception as e:
                     logger.error(f"Error extracting FPS {fps_id}: {e}")
                     driver.execute_script(f"liveFpsdata('30', '{district_code}');")
-                    import time
                     time.sleep(3)
 
             if not success:
                 logger.error(f"Failed to extract FPS {fps_id} after 3 attempts.")
-                
+
     except Exception as e:
         logger.error(f"Error in district {district_name}: {e}")
+
 
 def main():
     driver = get_edge_driver()
@@ -171,6 +175,7 @@ def main():
                 scrape_fps_list(driver, month, year, d_code, d_name)
     finally:
         driver.quit()
+
 
 if __name__ == "__main__":
     main()
